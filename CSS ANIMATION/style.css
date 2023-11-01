@@ -1,0 +1,51 @@
+body {
+   background-color: #628162;
+}
+
+.ball img {
+   opacity: 0.2;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   animation-name: kick, blink;
+   animation-duration: 2s, 200ms;
+   animation-fill-mode: forwards;
+   /* 
+   backwards: puxa a função do PONTO INICIAL da animação
+   forwards: puxa a função do PONTO FINAL da animação
+   both: puxa as funções tanto do PONTO INICIAL quanto do PONTO FINAL 
+   */
+   animation-direction: alternate;
+   /*fazer com que a animação fique alternando: começando de um lado e do outro*/
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+
+   /* SHORTHAND:
+   animation: kick 2s forwards alternate infinite, blink 200ms infinite */
+}
+
+.ball img:hover {
+   animation-play-state: paused;
+}
+
+@keyframes kick {
+   /* ponto inicial */
+   0% /*ou "from"*/{
+
+   }
+
+   /* ponto final */
+   100% /*ou "to"*/{
+      transform: translateX(calc(100vw - 100% - 16px)); /*esse cálculo vai pegar 100% da largura da tela (100vw) e subtrair o tamanho da imagem (100%) menos 16px ainda, só para dar uma margem*/
+   }
+}
+
+@keyframes blink {
+ 0%, 100% {
+   opacity: 1;
+ }
+
+ 50% {
+   opacity: 0.2;
+ }
+}
