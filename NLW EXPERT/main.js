@@ -18,7 +18,7 @@ const perguntas = [
       correta: 2
    },
    {
-      pergunta: "Qual o seu maior artilheiro pelo Campeonato Brasileiro?",
+      pergunta: "Qual o maior artilheiro, da história,  pelo Campeonato Brasileiro?",
       respostas: [
          "Romário",
          "Roberto Dinamite",
@@ -44,10 +44,24 @@ const perguntas = [
       ],
       correta: 2
    },
+   {
+      pergunta: "Em que data o clube veio a ser campeão da Copa Libertadores da América?",
+      respostas: [
+         "23 de agosto de 1998",
+         "29 de agosto de 1998",
+         "26 de agosto de 1998"
+      ],
+      correta: 2
+   },
 ];
 
 const quiz = document.querySelector('#quiz')
 const template = document.querySelector('template')
+
+const numberOfCorrects = new Set()
+const numberOfQuestions = perguntas.length
+const total = document.querySelector('#acertos span')
+total.textContent = numberOfCorrects.size + ' de ' + numberOfQuestions
 
 for(const item of perguntas) {
    const quizItem = template.content.cloneNode(true)
@@ -58,6 +72,18 @@ for(const item of perguntas) {
       const dt = quizItem.querySelector('dl dt').cloneNode(true)
 
       dt.querySelector('span').textContent = resposta
+      dt.querySelector('input'). setAttribute('name', 'pergunta-' + perguntas.indexOf(item))
+      dt.querySelector('input').value = item.respostas.indexOf(resposta)
+      dt.querySelector('input').onchange = (event) => {
+         const Correct = event.target.value == item.correta
+
+         numberOfCorrects.delete(item)
+         if (Correct) {
+            numberOfCorrects.add(item)
+         }
+
+         total.textContent = numberOfCorrects.size + ' de ' + numberOfQuestions
+      }
 
       quizItem.querySelector('dl').appendChild(dt)
    }
