@@ -12,20 +12,98 @@
    -webkit-text-size-adjust: 100%;
 }
 
+:root {
+   --white: #FEFEFE;
+   --smoky-black: #0E0C0A;
+   --red: #c00909;
+   --silver: #878686;
+   --light-silver: #e2e2e2;
+   --jet: #2E2E2E;
+}
+
+body {
+   background-color: var(--smoky-black);
+}
+
 main {
    max-width: 640px;
    margin: 0 auto 64px;
    padding: 20px;
 }
 
+header {
+   margin-top: 64px;
+   padding-bottom: 24px;
+   border-bottom: 1px solid var(--jet);
+}
+
+header h1 {
+   margin-top: 24px;
+   font-size: 30px;
+   color: var(--silver);
+}
+
 main #acertos {
    text-align: center;
-   background-color: #000000;
-   color: #ffffff;
+   background-color: var(--red);
+   color: var(--white);
    width: 100%;
    padding: 12px;
 
    position: fixed;
    bottom: 0;
    left: 0;
+}
+
+input {
+   all: unset;
+   border: 1px solid #424242;
+   background-color: var(--jet);
+   width: 16px;
+   height: 16px;
+   
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   border-radius: 50%;
+}
+
+input:checked {
+   border: 1px solid var(--red);
+}
+
+input:checked::before {
+   content: "";
+   width: 8px;
+   height: 8px;
+   background-color: var(--red);
+   border-radius: 50%;
+}
+
+.quiz-item {
+   color: var(--light-silver);
+   margin-top: 24px;
+   background-color: #2e2e2e7b;
+   border: 1px solid #2e2e2e;
+   border-radius: 10px;
+}
+
+.quiz-item h3 {
+   padding: 16px 20px;
+}
+
+.quiz-item dl {
+   padding: 20px 24px;
+   display: grid;
+   gap: 10px;
+}
+
+.quiz-item dl dt {
+   font-size: 14px;
+   line-height: 24px;
+
+   display: flex;
+   align-items: center;
+   gap: 8px;
 }
