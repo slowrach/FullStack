@@ -81,11 +81,6 @@ while (true) {
     continue;
   }
 
-  if (eval(position) < 1 || eval(position) > 7) {
-    alert("O número que você digitou não corresponde a nenhuma das opções!");
+  alert(imc(guys[position - 1]));
     continue;
-  } else {
-    alert(imc(guys[position - 1]));
-    continue;
-  }
 }
