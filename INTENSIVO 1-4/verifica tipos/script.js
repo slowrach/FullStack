@@ -23,3 +23,5 @@ if (typeof thing3 === 'boolean') {
 } else {
    alert("Não é um booleano")
 }
+
+//pois o prompt sempre retorna um dado do tipo  STRING
