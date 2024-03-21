@@ -44,16 +44,49 @@ body, input, button {
    margin-bottom: 4.8rem;
 }
 
-#game div input {
-   width: 4.3rem;
-   padding: 1.6rem;
+#game {
+   display: flex;
+   justify-content: center;
 }
 
-#game div button {
-   width: 8.2rem;
+button {
+   background-color: #434686;
+   color: #FFFFFF;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #2e305d;
+   transition: background .3s;
+}
+
+input, button {
    padding: 1.6rem;
    border: 0;
-   background-color: #5b5d9e;
-   color: #FFFFFF;
+}
+
+.hide {
+   display: none;
+}
+
+.pg-1 div input {
+   width: 6rem;
+   padding: 1.6rem;
+   background-color: #dbe7fb;
+   border-radius: 4px 0px 0px 4px;
+}
+
+.pg-1 div button {
+   width: 8.2rem;
    border-radius: 0px 4px 4px 0px;
+}
+
+.pg-2 h2 {
+   font-size: 2.6rem;
+   font-weight: 500;
+   margin-bottom: 3.3rem;
+}
+
+.pg-2 button {
+   border-radius: 4px;
 }
