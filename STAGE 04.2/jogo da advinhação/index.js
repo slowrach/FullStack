@@ -1,21 +1,52 @@
-function attempt() {
+const pg1 = document.querySelector(".pg-1")
+const pg2 = document.querySelector(".pg-2")
+
+const attemptButton = document.querySelector("#attemptButton")
+const tryAgainButton = document.querySelector("#tryAgainButton")
+
+let randomNumber = Math.ceil(Math.random() * 10);
+
+let totalAttempts = 1;
+
+attemptButton.addEventListener('click', attempt)
+tryAgainButton.addEventListener('click', tryAgain)
+
+function attempt(event) {
+  event.preventDefault()
+
   const kick = document.querySelector("#kick")
-  console.log(kick.value)
+  
+  if (Number(kick.value) == randomNumber) {
+    changePage()
+
+    const message = `Acertou em ${totalAttempts} tentativa`
+
+    if (totalAttempts == 1) {
+      pg2.querySelector(".h2").innerText = message
+    } else {
+      pg2.querySelector("h2").innerText = message + 's'
+    }
+  }
+
+  kick.value = ""
+
+  totalAttempts++
 }
 
-// const randomNumber = Math.ceil(Math.random() * 10);
+function tryAgain() {
+  changePage()
 
-// let attempts = 1;
+  totalAttempts = 1;
 
-// while (number != randomNumber) {
-//   number = prompt("Errou! Tente novamente: ")
-//   attempts++
-// }
+  randomNumber = Math.ceil(Math.random() * 10);
+}
 
-// const message = `Parabéns, era o número ${randomNumber} mesmo! Você acertou após ${attempts} tentativa`
+function changePage() {
+  pg1.classList.toggle("hide")
+  pg2.classList.toggle("hide")
+}
 
-// if (attempts == 1) {
-//   alert(message)
-// } else {
-//   alert(message + 's')
-// }
+//ANOTAÇÕES:
+// 'event.preventDefault()' : para não fazer o padrão que é 'enviar formulário', já que o botão foi criado dentro de um form
+// 'addEventListener': criou os eventos
+// as funções 'attempt()' e 'tryAgain()' são callbacks, pois são chamadas, em algum momento, dentro dos respectivos eventos
