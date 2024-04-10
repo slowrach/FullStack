@@ -15,22 +15,34 @@ function attempt(event) {
   event.preventDefault()
 
   const kick = document.querySelector("#kick")
-  
-  if (Number(kick.value) == randomNumber) {
-    changePage()
 
-    const message = `Acertou em ${totalAttempts} tentativa`
+  if (kick.value == "") {
+    alert("Digite um número!")
 
-    if (totalAttempts == 1) {
-      pg2.querySelector(".h2").innerText = message
+    kick.value = ""
+  } else {
+    if (Number(kick.value) < 0 || Number(kick.value) > 10) {
+      alert('Só podem números entre 0 e 10!')
+
+      kick.value = ""
     } else {
-      pg2.querySelector("h2").innerText = message + 's'
-    }
+      if (Number(kick.value) == randomNumber) {
+        changePage()
+
+        const message = `Acertou em ${totalAttempts} tentativa`
+
+        if (totalAttempts == 1) {
+          pg2.querySelector(".h2").innerText = message
+        } else {
+          pg2.querySelector("h2").innerText = message + 's'
+        }
+      }
+
+      kick.value = ""
+
+      totalAttempts++
+    }  
   }
-
-  kick.value = ""
-
-  totalAttempts++
 }
 
 function tryAgain() {
