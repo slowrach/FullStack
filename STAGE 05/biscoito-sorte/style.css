@@ -1,0 +1,20 @@
+body {
+   background: linear-gradient(45deg,#580404 0%, #040453 100%);
+}
+
+.screen1 {
+   /* padding: 48px 64px 64px; */
+   width: 428px;
+   background: #FFFFFF;
+   text-align: center;
+   margin: 0 auto;
+}
+
+.screen1 h1 {
+   font-size: 24px;
+  
+}
+
+.screen1 img {
+   width: 200px;
+}
