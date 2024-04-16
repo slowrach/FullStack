@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="style.css">
    <title>NBA Draft</title>
 </head>
@@ -11,14 +14,15 @@
       <div class="screen1">
          <h1>NBA Draft 2024</h1>
          <p>Clique na bola e descubra em que time você vai jogar</p>
-         <img src="assets/ball.png" alt=""> 
+         <button id="discover-team"><img src="assets/ball.png" alt="bola de basquete"></button>
       </div>
 
       <div class="screen2 hide">
-         <h2>Nome do time</h2>
+         <h2>Seu time é:</h2>
+         <p>nome do time</p>
          <img src="assets/hoop.png" alt="">
          <form action="">
-            <button>Sortear outro time</button>
+            <button id="draw-another">Sortear outro time</button>
          </form>
       </div>
    </main>
