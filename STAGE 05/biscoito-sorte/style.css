@@ -4,42 +4,49 @@
    box-sizing: border-box;
 }
 
+:root {
+   font-size: 62.5%;
+}
+
 body {
    font-family: 'DM Sans', sans-serif;
    color: #34355B;
    background: linear-gradient(45deg,#580404, #040453);
-   animation: bg-animation 8s linear infinite;
-   background-size: 100% 200%;
+   animation: bg-animation 10s ease infinite;
+   background-size: 200% 300%;
+}
+
+main {
+   width: min(42.8rem, 90%);
+   margin: 11rem auto 0;
 }
 
 .screen1 {
-   padding: 40px 64px 64px;
-   width: 428px;
-   background: #FFFFFF;
+   padding: 4rem 6.4rem 6.4rem;
+   background: #ffffffd0;
    display: flex;
    flex-direction: column;
    text-align: center;
    align-items: center;
-   margin: 0 auto;
    border-radius: 5px;
-   box-shadow: 0px 20px 50px 0px #000000cc;
+   box-shadow: 0 2rem 5rem 0 #000000cc;
 }
 
 .screen1 h1 {
    font-family: 'Montserrat', sans-serif;
-   font-size: 24px;
-   margin-bottom: 14px;
+   font-size: 2.4rem;
+   margin-bottom: 1.4rem;
 }
 
 .screen1 p {
-   font-size: 15px;
+   font-size: 1.5rem;
    font-weight: 500;
-   width: 192px;
-   margin-bottom: 20px;
+   width: 19.2rem;
+   margin-bottom: 2rem;
 }
 
 .screen1 img {
-   width: 200px;
+   width: 20rem;
 }
 
 #discover-team {
@@ -47,57 +54,80 @@ body {
    background-color: transparent;
    border-radius: 50%;
    cursor: pointer;
-   
+}
+
+#discover-team:hover {
+   animation: shake 0.1s alternate infinite;
 }
 
 .screen2 {
    display: flex;
    flex-direction: column;
    align-items: center;
-   gap: 17px;
-   background: #FFFFFF;
-   width: 428px;
-   padding: 48px 64px;
-   box-shadow: 0px 20px 50px 0px #000000cc;
+   gap: 1.7rem;
+   background: #ffffffd0;
+   padding: 4.8rem 6.4rem;
+   box-shadow: 0 2rem 5rem 0 #000000cc;
    border-radius: 5px;
 }
 
 .screen2 h1 {
    font-family: 'Montserrat', sans-serif;
-   font-size: 24px;
+   font-size: 2.4rem;
 }
 
 .screen2 p {
+   font-size: 1.8rem;
    background: #E4EDF1;
    box-shadow: 2px 2px 2px 0px #55555580;
-   padding: 10px;
+   padding: 1rem;
    border-radius: 5px;
+
+   animation: appear 2s;
 }
 
 .screen2 img {
-   width: 200px;
+   width: 20rem;
 }
 
 #draw-another {
    font-family: 'DM Sans', sans-serif;
    font-weight: 600;
-   font-size: 15px;
-   width: 174px;
-   padding: 16px;
+   font-size: 1.5rem;
+   width: 17.4rem;
+   padding: 1.6rem;
    border: none;
    border-radius: 4px;
    background: #e46314;
    color: #FFFFFF;
-   cursor: pointer
+   cursor: pointer;
+}
+
+#draw-another:hover {
+   background-color: #bb510f;
+}
+
+.hide {
+   display: none;
 }
 
 @keyframes shake {
+   0% {
+      transform: translateX(5px); 
+   }
 
+   50% {
+      transform: translateX(0px);
+   }
+   
+   100% {
+      transform: translateX(-5px); 
+   }
 } 
 
 @keyframes bg-animation {
    0% {
-      background-position: 80% 0%;
+      background-position: 90% 0%;
    }
 
    50% {
@@ -105,6 +135,12 @@ body {
    }
 
    100% {
-      background-position: 80% 0%;
+      background-position: 90% 0%;
+   }
+}
+
+@keyframes appear {
+   0% {
+      transform: translateY(90px) scale(0.4);
    }
 }
