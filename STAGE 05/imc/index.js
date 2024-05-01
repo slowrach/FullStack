@@ -1,17 +1,34 @@
 import { cardResult } from "./card.js";
+import { imc, alertError} from "./functions.js"
 
 export const inputWeight = document.querySelector('#weight');
 export const inputHeight = document.querySelector('#height');
 const form = document.querySelector('form');
 const msgError = document.querySelector('.msg-error');
 
+inputWeight.oninput = () => msgError.classList.add('hide')
+inputHeight.oninput = () => msgError.classList.add('hide')
 form.onsubmit = (event) => {
   event.preventDefault()
 
   const weight = inputWeight.value
   const height = inputHeight.value
+  
+  const valueIsNaN = alertError(weight) || alertError(height)
+
+  if (valueIsNaN) {
+    msgError.classList.remove('hide')
+    inputWeight.value = ""
+    inputHeight.value = ""
+    return;
+  }
+
   const imcCalc = imc(weight, height)
 
+  result(imcCalc)
+}
+
+function result(imcCalc) {
   if (imcCalc < 18.5) {
     var situation = "BAIXO PESO";
   } else if (imcCalc >= 18.5 && imcCalc <= 24.9) {
@@ -26,17 +43,9 @@ form.onsubmit = (event) => {
     situation = "OBESIDADE GRAU III";
   }
 
-  cardResult.text.innerText = `Seu IMC é de ${imcCalc}, logo está com ${situation}`
+  const message = `seu IMC é de ${imcCalc}, logo está com ${situation}`
+
+  cardResult.text.innerText = message
 
   cardResult.open()
 }
-
-function imc(weight, height) {
-   return (weight / (height / 100) ** 2).toFixed(1);  
-}
-
-// function alertError() {
-//   if (isNaN(weight) || isNaN(height)) {
-//     msgError.classList.remove('hide')
-//   }
-// }
