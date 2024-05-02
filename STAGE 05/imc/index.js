@@ -6,8 +6,8 @@ export const inputHeight = document.querySelector('#height');
 const form = document.querySelector('form');
 const msgError = document.querySelector('.msg-error');
 
-inputWeight.oninput = () => msgError.classList.add('hide')
-inputHeight.oninput = () => msgError.classList.add('hide')
+inputWeight.oninput = () => msgError.classList.remove('appear')
+inputHeight.oninput = () => msgError.classList.remove('appear')
 form.onsubmit = (event) => {
   event.preventDefault()
 
@@ -17,7 +17,7 @@ form.onsubmit = (event) => {
   const valueIsNaN = alertError(weight) || alertError(height)
 
   if (valueIsNaN) {
-    msgError.classList.remove('hide')
+    msgError.classList.add('appear')
     inputWeight.value = ""
     inputHeight.value = ""
     return;

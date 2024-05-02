@@ -88,7 +88,7 @@ body {
 
 .card {
    position: absolute;
-   inset: 0; /*shorthand - top: 0; bottom: 0; right: 0; left: 0;*/
+   inset: 0; /*shorthand -> top: 0; bottom: 0; right: 0; left: 0;*/
    background: #000000b3;
    display: grid;
    place-content: center;
@@ -137,8 +137,17 @@ body {
    background: #F03E3E;
    font-weight: 700;
    text-align: center;
-   padding: 1rem;
-   /* animation: appear 4s forwards; */
+   padding: 1rem 0;
+   visibility: hidden;
+   opacity: 0;
+   transform: translateY(-40px);
+   transition: transform 1s;
+}
+
+.msg-error.appear {
+   transform: translateY(0px);
+   visibility: visible;
+   opacity: 1;
 }
 
 @keyframes move {
@@ -146,17 +155,3 @@ body {
       transform: translateX(10px);
    }
 }
-
-/* @keyframes appear {
-   0% {
-      transform: translateY(-40px);
-   }
-
-   50% {
-      transform: translateY(0px);
-   }
-
-   100% {
-      transform: translateY(-40px);
-   }
-} */
