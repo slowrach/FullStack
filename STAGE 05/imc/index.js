@@ -1,5 +1,5 @@
 import { cardResult } from "./card.js";
-import { imc, alertError} from "./functions.js"
+import { imc, isNaNError, emptyError} from "./functions.js"
 
 export const inputWeight = document.querySelector('#weight');
 export const inputHeight = document.querySelector('#height');
@@ -14,12 +14,20 @@ form.onsubmit = (event) => {
   const weight = inputWeight.value
   const height = inputHeight.value
   
-  const valueIsNaN = alertError(weight) || alertError(height)
+  const valueIsNaN = isNaNError(weight) || isNaNError(height)
+  const valueEmpty = emptyError(weight) || emptyError(height)
 
   if (valueIsNaN) {
+    msgError.innerText = 'Digite apenas números'
     msgError.classList.add('appear')
     inputWeight.value = ""
     inputHeight.value = ""
+    return;
+  }
+
+  if (valueEmpty) {
+    msgError.innerText = 'Digite os dois valores'
+    msgError.classList.add('appear')
     return;
   }
 
@@ -29,9 +37,9 @@ form.onsubmit = (event) => {
 }
 
 function result(imcCalc) {
-  if (imcCalc < 18.5) {
+  if (imcCalc < 18.6) {
     var situation = "BAIXO PESO";
-  } else if (imcCalc >= 18.5 && imcCalc <= 24.9) {
+  } else if (imcCalc >= 18.6 && imcCalc <= 24.9) {
     situation = "PESO NORMAL";
   } else if (imcCalc >= 25 && imcCalc <= 29.9) {
     situation = "SOBREPESO";
