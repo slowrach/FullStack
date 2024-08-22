@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+   <script type="module" src="./src/main.js" defer></script>
+   <title>Focus Timer 2</title>
+</head>
+<body>
+   <div id="project">
+      <div id="timer">
+         <div class="time">
+            <span id="minutes">25</span>
+            <span>:</span>
+            <span id="seconds">00</span>
+         </div>
+         <div class="controls">
+            <button data-action="play"><img src="assets/play.svg" alt="símbolo de play"></button>
+
+            <button data-action="pause"><img src="assets/stop.svg" alt="símbolo de stop"></button>
+
+            <button data-action="increase"><img src="assets/+.svg" alt="símbolo de mais"></button>
+            
+            <button data-action="decrease"><img src="assets/-.svg" alt="símbolo de menos"></button>
+         </div>
+      </div>
+      <div id="sounds">
+         <button data-action="florestaSound"><img src="assets/card-1.svg" alt="ilustração de árvore"></button>
+
+         <button data-action="chuvaSound"><img src="assets/card-2.svg" alt="ilustração de chuva"></button>
+
+         <button data-action="cafeteriaSound"><img src="assets/card-3.svg" alt="ilustração de cafeteria"></button>
+
+         <button data-action="lareiraSound"><img src="assets/card-4.svg" alt="ilustração de fogo"></button>
+      </div>
+   </div>
+</body>
+</html>
