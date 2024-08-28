@@ -2,6 +2,8 @@ import state from "./state.js"
 import * as actions from "./actions.js"
 
 export function countdown() {
+   clearTimeout(state.count)
+
    if (!state.run) {
       return
    }
@@ -22,7 +24,7 @@ export function countdown() {
 
    update(min, sec)
 
-   setTimeout(() => countdown(), 1000)
+   state.count = setTimeout(() => countdown(), 1000)
 }
 
 export function increaseSec() {

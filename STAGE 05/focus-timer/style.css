@@ -9,6 +9,8 @@
 }
 
 body {
+   width: 100%;
+   margin: auto;
    display: grid;
    place-content: center;
 }
@@ -16,7 +18,7 @@ body {
 #project {
    display: flex;
    gap: 19.2rem;
-   margin: 17.6rem 23.3rem 15rem;   
+   margin-top: 17.6rem;
 }
 
 #timer {
@@ -28,8 +30,9 @@ body {
    display: flex;
    margin-bottom: 3rem;
    color: #323238;
+   margin-inline: auto;
    font-family: 'Roboto', sans-serif;
-   font-size: 12.6rem;
+   font-size: clamp(10rem, 1vw + 10rem, 12.6rem);
    font-weight: 500;
 }
 
@@ -74,4 +77,55 @@ body {
 #sounds button:hover {
    transform: scale(1.1);
    transition: 0.5s;
+}
+
+@media (max-width: 595px) {
+   #project {
+      margin: 10rem 0;
+      flex-direction: column;
+      gap: 7rem;
+   }
+
+   .time {
+      margin-bottom: 1rem;
+   }
+
+   .controls {
+      gap: 2rem;
+   }
+
+   .controls button img {
+      width: 4rem;
+   }
+
+   #sounds button img {
+      width: 10rem;
+   }
+
+   #sounds {
+      grid-template-columns: 30% 50%;
+      justify-content: end;
+      row-gap: 2.5rem;
+   }
+
+}
+
+@media (min-width: 595px) and (max-width: 870px) {
+   #project {
+      margin: 13rem 0;
+      flex-direction: column;
+      gap: 10rem;
+   }
+
+   .time {
+      margin-bottom: 1rem;
+   }
+
+   #sounds {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+   }
+
+   #sounds button img {
+      width: 12rem;
+   }
 }

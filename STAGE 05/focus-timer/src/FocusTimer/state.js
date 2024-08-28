@@ -3,4 +3,5 @@ export default {
    seconds: 0,
    run: false,
    sound: null,
+   count: null,
 }
