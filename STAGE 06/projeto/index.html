@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+</head>
+<body class="page">
+    <header>
+        <h1>CURIOSIDADES DE TECNOLOGIA</h1>
+        <p>Tudo aquilo que você sempre quis saber sobre o mundo Tech, em um único lugar</p>
+        <i id="menu-burguer"
+        class="material-icons" onclick="clickMenu()">menu</i>
+        <nav id="itens">
+            <a href="/" onclick="route()">Home</a>
+            <a href="/noticias" onclick="route()">Notícias</a>
+            <a href="/curiosidades" onclick="route()">Curiosidades</a>
+            <a href="/video" onclick="route()">Vídeo</a>
+            <a href="/contato" onclick="route()">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <div id="app">
+        
+    </div>
+
+    <script src="js/index.js" type="module">
+        // function mudaTamanho() {
+        //     if (window.innerwidth >= 768) {
+        //     itens.style.display = 'none'
+        //     } else {
+        //     itens.style.display = 'block'
+        //     }
+        // }
+
+        // function clickMenu() {
+        //     if (itens.style.display == 'none') {
+        //     itens.style.display = 'block'
+        //     } else {
+        //     itens.style.display = 'none'
+        //     }
+        // }
+    </script>
+
+    <footer>
+        <p>Site idealizado pelo <strong>Curso em Vídeo</strong>.</p>
+    </footer>
+</body>
+</html>

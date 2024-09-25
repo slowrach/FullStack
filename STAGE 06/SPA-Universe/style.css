@@ -1,0 +1,28 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background: url('assets/pg-1.jpg') no-repeat top center;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+header {
+   display: flex;
+   margin: 40px 72px;
+   gap: 32px;
+}
+
+nav {
+   display: flex;
+   gap: 32px;
+   align-items: center;
+}
+
+nav a {
+   text-decoration: none;
+   color: #C4C4CC;
+}
