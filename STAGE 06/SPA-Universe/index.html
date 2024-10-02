@@ -4,21 +4,23 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
+   <link rel="shortcut icon" href="assets/Vector.svg" type="image/x-icon">
    <title>SPA Universe</title>
 </head>
 <body>
    <header>
       <img src="assets/Vector.svg" alt="símbolo de universo">
       <nav>
-         <a href="">Home</a>
-         <a href="">O Universo</a>
-         <a href="">Exploração</a>
+         <a href="/" onclick="route()">Home</a>
+         <a href="/universo" onclick="route()">O Universo</a>
+         <a href="/exploracao" onclick="route()">Exploração</a>
       </nav>
    </header>
 
-   <main>
-      <h1>Explore o universo</h1>
-      <button>QUERO SABER MAIS</button>
+   <main id="page">
+
    </main>
+
+   <script src="js/index.js" type="module"></script>
 </body>
 </html>

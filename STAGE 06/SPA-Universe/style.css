@@ -4,16 +4,37 @@
    box-sizing: border-box;
 }
 
-body {
+.home {
+   height: 100vh;
    background: url('assets/pg-1.jpg') no-repeat top center;
    background-size: cover;
    background-attachment: fixed;
 }
 
+.pg2 {
+   height: 100vh;
+   background: url('assets/pg-2.jpg') no-repeat top center;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.pg3 {
+   height: 100vh;
+   background: url('assets/pg-3.jpg') no-repeat top center;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+body {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
    display: flex;
-   margin: 40px 72px;
    gap: 32px;
+   position: absolute;
+   top: 40px;
+   left: 72px;
 }
 
 nav {
@@ -25,4 +46,53 @@ nav {
 nav a {
    text-decoration: none;
    color: #C4C4CC;
+}
+
+nav a:hover {
+   color: #FFFFFF;
+   font-weight: 700;
+}
+
+main {
+   text-align: center;
+}
+
+main h1 {
+   margin-bottom: 24px;
+   color: #E1E1E6;
+}
+
+.title-1 {
+   padding-top: 294px;
+}
+
+main button {
+   background-color: transparent;
+   border: 2px solid #FFFFFF;
+   border-radius: 5px;
+   padding: 12px 32px;
+   font-weight: 700;
+   font-size: 14px;
+   color: #FFFFFF;
+}
+
+main button:hover {
+   background-color: #ffffff;
+   color: #000000;
+   cursor: pointer;
+}
+
+.title-2 {
+   padding-top: 185px;
+   text-align: left;
+   margin-left: 102px;
+}
+
+p {
+   color: #FFFFFF;
+   width: 648px;
+   font-size: 18px;
+   line-height: 28.8px;
+   text-align: justify;
+   margin-left: 102px;
 }
