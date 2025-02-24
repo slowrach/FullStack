@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Aulas de Query builder",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "make": "knex migrate:make",
-    "latest": "knex migrate:latest"
-
+    "latest": "knex migrate:latest",
+    "down": "knex migrate:down",
+    "list": "knex migrate:list",
+    "rollback": "knex migrate:rollback",
+    "remove": "knex migrate:rollback --all",
+    "seedMake": "knex seed:make",
+    "seedRun": "knex seed:run"
   },
   "author": "Rodrigo",
   "license": "ISC",
