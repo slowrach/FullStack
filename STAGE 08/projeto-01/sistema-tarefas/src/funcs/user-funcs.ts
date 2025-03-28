@@ -35,4 +35,10 @@ export class UserFuncs {
 
       return response.status(201).json(withoutPassword)
    }
+
+   async show(request: Request, response: Response) {
+      const users = await prisma.user.findMany()
+
+      response.json({ users })
+   }
 }
