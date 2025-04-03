@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        div#area {
+            background: #2965ad;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15pt;
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="area">
+        Running on Faith
+    </div>
+
+    <script>
+        var muda = window.document.getElementById('area')
+
+        muda.addEventListener('click', clicar)
+        muda.addEventListener('mouseenter', entrar)
+        muda.addEventListener('mouseout', sair)
+
+        function clicar() {
+            muda.innerText = 'Música do Eric Clapton'
+            muda.style.background = '#000000'
+        }
+
+        function entrar() {
+            muda.innerText = 'Running on Faith'
+        }
+
+        function sair() {
+            muda.innerText = 'Sumiu!'
+            muda.style.background = '#2965ad'
+        }
+    </script>
+</body>
+</html>

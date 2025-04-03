@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas Grandes</title>
+    <style>
+        body {
+            background-color: #1d1d1d;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            background-image: linear-gradient(to right, #2f51cbc0, transparent) ;
+            color: #ffffff;
+            padding: 3px;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #1c1c96;
+            padding: 5px;
+            color: #1c1c96;
+            text-indent: 5px;
+        }
+
+        tbody > tr:nth-child(2n) /*even*/ {
+            background-color: #ffffff;
+        }
+
+        tbody > tr:nth-child(2n-1) /*odd*/ {
+            background-color: #dee6ff;
+        }
+
+        caption {
+            background-color: #2f51cb;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 3px;
+        }
+
+        th.sub-titulo {
+            border: 1px solid #1c1c96;
+            padding: 2px;
+            background-color: #b2c2f8;
+            color: #000000;
+        }
+
+        .num {
+            text-align: right;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1c1c96;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        tfoot {
+            background-color: #ffffff;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- HIERARQUIA DE TABELAS GRANDES:
+        TABLE
+            - CAPTION <caption> 
+            - TABLE HEADER <thead>:
+                <tr>
+                <td>
+                <th>
+            - TABLE BODY <tbody>:
+                <tr>
+                <td>
+                <th>
+            - TABLE FOOTER <tfoot>:
+                <tr>
+                <td>
+                <th> -->
+    <h1>&#x1F4BF August - Eric Clapton (1986)</h1>
+
+    <table>
+        <caption>Gráficos Semanais</caption>
+        <thead>
+            <tr>
+                <th class="sub-titulo" scope="col">Gráfico (1986-1987)</th>
+                <th class="sub-titulo" scope="col" style="width: 90px">Posição</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Álbuns canadenses (RPM)</td>
+                <td class="num">40</td>
+            </tr>
+            <tr>
+                <td>Álbuns Holandeses (Álbum Top 100)</td>
+                <td class="num">29</td>
+            </tr>
+            <tr>
+                <td>Álbuns Europeus (IFPI)</td>
+                <td class="num">10</td>
+            </tr>
+            <tr>
+                <td>Álbuns Finlandeses (Suomen Virallinen Lista)</td>
+                <td class="num">15</td>
+            </tr>
+            <tr>
+                <td>Álbuns Alemães (Offizielle Top 100)</td>
+                <td class="num">32</td>
+            </tr>
+            <tr>
+                <td>Álbuns Italianos (AFI)</td>
+                <td class="num">17</td>
+            </tr>
+            <tr>
+                <td>Álbuns da Nova Zelândia (RMNZ)</td>
+                <td class="num">38</td>
+            </tr>
+            <tr>
+                <td>Álbuns Noruegueses (VG-lista)</td>
+                <td class="num">12</td>
+            </tr>
+            <tr>
+                <td>Álbuns Suecos (Sverigetopplistan)</td>
+                <td class="num">7</td>
+            </tr>
+            <tr>
+                <td>Álbuns Suícos (Schweizer Hitparade)</td>
+                <td class="num">23</td>
+            </tr>
+            <tr>
+                <td>Álbuns do Reino Unido (OCC)</td>
+                <td class="num">3</td>
+            </tr>
+            <tr>
+                <td>Billboard 200 dos EUA</td>
+                <td class="num">37</td>
+            </tr>
+            <tr>
+                <td>Billboard 200 dos EUA (Gráfico de Fim de Ano)</td>
+                <td class="num">70</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th colspan="2">via <a href="https://en.wikipedia.org/wiki/August_(album)" target="_blank">Wikipedia</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- colspan (para expandir uma célula para além de uma coluna)
+    rowspan (para expandir uma célula para além de uma linha) -->
+    
+</body>
+</html>

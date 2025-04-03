@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musics</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #cbfae0;
+        }
+
+        table {
+            width: 900px;
+            border-collapse: collapse;
+        }
+
+        caption {
+            color: #347d55;
+            font-size: 1.3em;
+            font-variant: small-caps;
+            font-weight: bolder;
+            padding: 10px;
+        }
+
+        thead > tr > th {
+            color: #347d55;
+        }
+
+        col.posicao {
+            background-color: #8ed7ae;
+        }
+
+        col.grupo {
+            background-color: #ffffff;
+        }
+
+        th, td {
+            border: 2px solid #347d55;
+            padding: 5px;
+        }
+
+        .num {
+            text-align: center;
+        }
+
+        div#container {
+            overflow-x: scroll;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <table>
+            <caption>Músicas mais tocadas este mês</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Posição</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Álbum</th>
+                </tr>
+            </thead>
+            <colgroup>
+                <col class="posicao">
+                <col class="grupo" span="3">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td class="num">1</td>
+                    <td>Bell Bottom Blues</td>
+                    <td>Eric Clapton</td>
+                    <td>24 Nights</td>
+                </tr>
+                <tr>
+                    <td class="num">2</td>
+                    <td>Cryin'</td>
+                    <td>Eric Calpton</td>
+                    <td>Eric Clapton Blues</td>
+                </tr>
+                <tr>
+                    <td class="num">3</td>
+                    <td>(Sittin' On) The Dock of The Bay</td>
+                    <td>Sting</td>
+                    <td>The Bridge</td>
+                </tr>
+                <tr>
+                    <td class="num">4</td>
+                    <td>Let It Grow</td>
+                    <td>Eric Clapton</td>
+                    <td>461 Ocean Blvd. (Deluxe Edition)</td>
+                </tr>
+                <tr>
+                    <td class="num">5</td>
+                    <td>Hard Times</td>
+                    <td>Eric Clapton</td>
+                    <td>Journeyman</td>
+                </tr>
+                <tr>
+                    <td class="num">6</td>
+                    <td>One Day</td>
+                    <td>Gary Moore</td>
+                    <td>Ballads & Blues 1982-1994</td>
+                </tr>
+                <tr>
+                    <td class="num">7</td>
+                    <td>Catch The Blues</td>
+                    <td>Eric Clapton</td>
+                    <td>I Still Do</td>
+                </tr>
+                <tr>
+                    <td class="num">8</td>
+                    <td>We Found What We Were Looking For</td>
+                    <td>Bryan Adams</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td class="num">9</td>
+                    <td>Fields Of Gold</td>
+                    <td>Sting</td>
+                    <td>The Best Of 25 Years</td>
+                </tr>
+                <tr>
+                    <td class="num">10</td>
+                    <td>We're All The Way</td>
+                    <td>Eric Clapton</td>
+                    <td>Slowhand 35th Anniversary</td>
+                </tr>
+                <tr>
+                    <td class="num">11</td>
+                    <td>No Way Out (Theme From Brother Bear)</td>
+                    <td>Phil Collins</td>
+                    <td>Brother Bear Original Soundtrack</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

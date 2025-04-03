@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 10px;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #cac9c9;
+        }
+
+        div#saida {
+            color: #969797;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de unidade de medida</h1>
+    <button onclick="botao()">Converter</button>
+    <div id="saida">
+        Clique no botão acima para iniciar a conversão.
+    </div>
+
+    <script>
+        function botao() {
+            var metro = Number(window.prompt('Digite a distância em metros:'))
+            var km = metro / 1000
+            var cm = metro * 100
+            var res = window.document.getElementById('saida')
+
+            res.innerHTML = `<h2>A distância em ${metro} metros corresponde a:</h2>
+            <p>${km} km (quilômetros)</p>
+            <p>${cm} cm (centímetros)</p>`
+        }
+    </script>
+</body>
+</html>

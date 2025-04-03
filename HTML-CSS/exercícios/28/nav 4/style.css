@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c0c36;
+    color: #ffffff;
+    height: 6rem /*(=60px)*/;
+    padding: 0px 24px;
+    flex-direction: row-reverse;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a.logo {
+    color: #1313d4;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #cac9c9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média dos alunos</h1>
+    <button onclick="botao()">Analisar Situação</button>
+    <div id="resultado">
+
+    </div>
+
+    <script>
+        function botao() {
+            var nome = window.prompt('Digite o nome completo do aluno:')
+            var p1 = Number(window.prompt(`Digite a primeira nota de ${nome}:`))
+            var p2 = Number(window.prompt(`Digite a segunda nota de ${nome}:`))
+            var media = (p1 + p2)/2
+            var res = window.document.getElementById('resultado')
+
+            res.innerHTML = `<h2>${nome}:</h2>
+            <p>Primeira nota: ${p1}</p>
+            <p>Segunda nota: ${p2}</p>
+            <p><strong style = "color: #0606cd;">Média: ${media}</strong></p>`
+
+            if (media < 4) {
+                res.innerHTML += `Com média abaixo de 4.0, o aluno está <strong style = "color: #c20808; background-color: #f3a5a5;">REPROVADO</strong>`
+            } else if (media >= 4 && media < 7) {
+                res.innerHTML += `Com média entre 4.0 e 7.0, o aluno está em <strong style = "color: #b4a807; background-color: #f2ec91;">RECUPERAÇÃO</strong>`
+            } else {
+                res.innerHTML += `Com média acima de 7.0, o aluno está <strong style = "color: #059005; background-color: #b0ffb0;">APROVADO</strong>`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #cac9c9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fórmula de Bháskara</h1>
+    <button onclick="botao()">Calcular</button>
+    <div id="resultado">
+
+    </div>
+
+    <script>
+        function botao() {
+            var a = Number(window.prompt('Digite o valor de a:'))
+            var b = Number(window.prompt('Digite o valor de b:'))
+            var c = Number(window.prompt('Digite o valor de c:'))
+            var delta = (b)**2 - 4*a*c
+            var res = window.document.getElementById('resultado')
+
+            res.innerHTML = `<p>Equação: (${a})x² + (${b})x + (${c}).</p>
+            <p>Δ = (${b})² - 4 . (${a}) . (${c}) </p>
+            <p>Sendo assim, Δ = ${delta}</p>`
+
+            if (delta < 0) {
+                res.innerHTML += "<p>Nesse caso, não existirão raízes reais.</p>"
+            } else if (delta = 0) {
+                res.innerHTML += "<p>Nesse caso, as raízes serão iguais</p>"
+            } else {
+                res.innerHTML += "<p>Nesse caso, existirão duas raízes distintas.</p>"
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fonte externa</title>
+    <style>
+        @font-face {
+            font-family: 'heart' ;
+            src: url('fonts/love story ttf.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            /*
+            tipos de format()
+            - opentype (otf)
+            - truetype (ttf)
+            - embedded-opentype
+            - truetype-aat (apple advanced typography)
+            - svg
+            */
+        }
+        
+        @font-face {
+            font-family: 'natal' ;
+            src: url('fonts/MerryChristmasFlake.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        p {
+            font-family: 'natal', serif;
+            font-size: 2em;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-family: 'heart', sans-serif;
+            font-size: 2.5em;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fontes externas em CSS</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, consequatur. Veniam deserunt ut perferendis corrupti dignissimos nobis libero omnis, dolore rerum minus fuga numquam amet vitae possimus est autem cumque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi praesentium rem accusamus eaque inventore? Excepturi, iste. Dolore animi quod magnam libero, commodi nesciunt et ipsam incidunt, laudantium, explicabo non provident?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt culpa sit voluptatem a dolorum hic eaque recusandae nulla perferendis quae, pariatur porro exercitationem! Aperiam velit repellendus a maiores iusto! Corporis?</p>
+</body>
+</html>

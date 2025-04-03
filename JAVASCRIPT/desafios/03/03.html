@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #cac9c9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio dos números</h1>
+    <button onclick="botao()">Antecessor e Sucessor</button>
+
+    <script>
+        function botao() {
+            var num = Number(window.prompt('Digite um número:'))
+            var ant = num - 1
+            var suc = num + 1
+
+            window.alert(`Antes de ${num}, temos ${ant} e depois de ${num}, temos ${suc}!`)
+        }
+    </script>
+</body>
+</html>

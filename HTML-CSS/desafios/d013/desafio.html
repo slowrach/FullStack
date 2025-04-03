@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        table {
+            width: 200px;
+        }
+
+        tr, td {
+            border: 1px solid #000000;
+            border-radius: 3px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tabela 1:</h2>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td rowspan="2">3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>            
+        </tr>
+        <tr>
+            <td colspan="3">8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td rowspan="2">10</td>
+            <td colspan="2">11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+        </tr>
+    </table>
+
+    <h2>Tabela 2:</h2>
+    <table style="width: 250px;">
+        <tr>
+            <td colspan="4" style="padding: 20px; background-color: #ff0000; color: #ffffff;">A</td>
+            <td rowspan="4" style="padding: 20px; background-color: #e5e513; color: #ffffff;">B</td>
+        </tr>
+        <tr>
+            <td rowspan="4" style="padding: 20px; background-color: #0000ff; color: #ffffff">C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>            
+        </tr>
+        <tr>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+        </tr>
+        <tr>
+            <td>J</td>
+            <td>L</td>
+            <td>M</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="padding: 20px; background-color: #008000; color: #ffffff;">N</td>
+        </tr>
+    </table>
+</body>
+</html>

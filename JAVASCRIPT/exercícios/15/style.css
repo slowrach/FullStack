@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #437eadc8;
+    background: url('imagens/fundo-2.jpg') no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #feefef;
+    text-align: center;
+}
+
+header h1 {
+    text-shadow: 3px 3px 2px #000000c6;
+}
+
+section {
+    margin: 30px;
+    background-color: #ffffffd1;
+    color: #000000;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto;
+    width: 650px;
+    box-shadow: 3px 3px 10px #00000033;
+}
+
+section div#form p {
+    text-align: left;
+}
+
+section div#form p#botao {
+    text-align: center;
+}
+
+section div#saida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section div#saida img#foto {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+footer {
+    font-style: italic;
+    font-size: 0.8em;
+    text-shadow: 1px 1px 0px #00000067;
+}
+
+footer a {
+    text-decoration: none;
+    color: #b62d2d;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #f67575;
+}

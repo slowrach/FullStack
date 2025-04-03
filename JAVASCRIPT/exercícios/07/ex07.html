@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            font-size: 15pt;
+        }
+
+        #r {
+            margin-top: 20px;
+            font-size: 15pt;
+            font-weight: bolder;
+            color: #a622de;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <h2>Digite os valores que deseja somar:</h2>
+
+    <input type="number" name="n1" id="in1"> +
+    <input type="number" name="n2" id="in2">
+    <input type="button" value="=" onclick="soma()">
+
+    <div id="r">Resultado</div>
+
+    <script>
+        function soma() {
+            var n1 = window.document.getElementById('in1')
+            var n2 = window.document.getElementById('in2')
+            var result = window.document.getElementById('r')
+
+            var num1 = Number(n1.value)
+            var num2 = Number(n2.value)
+
+            var soma = num1 + num2
+
+            result.innerText = `A soma de ${num1} e ${num2} é igual a ${soma}`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caixas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(170, 246, 220);
+            margin: 0px;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.852);
+        }
+
+        header {
+            background-color: rgb(105, 221, 182);
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        main {
+            background-color: rgba(123, 228, 193, 0.534);
+            padding: 10px;
+            margin: 10px;
+        }
+
+        nav {
+            background-color: rgba(68, 127, 108, 0.589) ;
+            padding: 3px;
+            box-shadow: 2px 3px 5px 1px rgba(0, 0, 0, 0.449);
+        }
+
+        nav > a {
+            text-decoration: none;
+            color: black;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        nav > a:hover {
+            text-decoration: underline;
+        }
+
+        article {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.619);
+            padding-top: 5px;
+            border-radius: 10px 70px;
+        }
+
+        article > aside {
+            color: rgb(80, 166, 137);
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: aquamarine;
+            margin: 0px;
+            padding: 3px;
+            text-align: center;
+        }
+
+        footer > p {
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grouping Tags (tags de agrupamento)</h1>
+        <nav>
+            <a href="">link 1</a> 
+            <a href="">link 2</a> 
+            <a href="">link 3</a>
+        </nav>
+    </header>
+    <main>
+        <section id="assuntos">
+
+        </section>
+        <section id="notícias">
+            <article>
+                <h2>Últimas notícias sobre o Bayern</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto voluptate quia ullam ex eius id saepe esse nisi impedit qui nemo exercitationem dolor cupiditate beatae illo nobis quasi, magnam vero?</p>
+                <aside>
+                    <p>Artigo escrito por stingirl</p>
+                    <!-- "aside" é um tag que faz referência ao artigo na qual ela está inserida-->
+                </aside>
+            </article>
+            <!--"section" servem para separar o conteúdo do sites em seções específicas-->
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por little rachel</p>
+
+    </footer>
+</body>
+</html>
