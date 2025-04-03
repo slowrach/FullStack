@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('../imagens/fundo-3.jpg') no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    height: 100vh;
+    position: relative;
+}
+
+#celular {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 627px;
+    width: 311px;
+    background: url('../imagens/frame-iphone.png') no-repeat;
+}
+
+#botoes {
+    text-align: right;
+}
+
+#botoes > a > img:hover {
+    border: 3.5px solid #befc37ae;
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 10px #fbf8f84a;
+    transition: transform 0.5s, border 0.5s;
+}
+
+#botoes > a > img {
+    width: 35px;
+    margin: 10px;
+    box-shadow: 2px 2px 5px #00000076;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+#tela {
+    position: relative;
+    top: 80px;
+    left: 21px;
+    width: 269px;
+    height: 472px;
+}

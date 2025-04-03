@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+:root {
+    --fontet1: 'Fredericka the Great', cursive;
+    --fontep1: 'Courier New', Courier, monospace;
+    --fontep2: 'Satisfy', cursive;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fae5f3;
+}
+
+header {
+    background-image: url(imagens/header.jpg);
+    background-color: #f7bee3;
+    background-size: cover;
+    color: #873f7d;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 1px 1px 10px #00000029;
+}
+
+header > h1 {
+    padding-top: 50px;
+    font-family: var(--fontet1);
+    font-variant: small-caps;
+    font-size: 6vw;
+}
+
+header > p {
+    padding-bottom: 50px;
+    font-family: var(--fontep1);
+    font-weight: bold;
+}
+
+article {
+    font-family: var(--fontep2);
+    color: #873f7d;
+}
+
+article > section {
+    padding: 10vh 0px 10vh 35px;
+    line-height: 2em;
+    font-size: 3.5vw;
+}
+
+.destaque {
+    background-color: #f7bee3;
+    box-shadow: inset 5px 5px 20px 0px #00000080;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.destaque > p {
+    display: inline-block;
+    padding: 15px;
+    background-color: #f7cae7ac;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+#flor1 {
+    background-image: url(imagens/flower-1.jpg);
+    background-position: center right;
+}
+
+#flor2 {
+    background-image: url(imagens/flower-3.jpg);
+    background-position: bottom left;
+}
+
+footer {
+    background-color: #e9aad3;
+    text-align: center;
+    font-family: var(--fontep1);
+    font-weight: bold;
+    color: #873f7d;
+    padding: 5px;
+}
