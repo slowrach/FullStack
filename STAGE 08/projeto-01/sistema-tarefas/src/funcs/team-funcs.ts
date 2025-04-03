@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { prisma } from "../database/prisma"
 import { z } from "zod"
+import { AppError } from "../utils/AppError"
 
 export class TeamFuncs {
    async create(request: Request, response: Response) {
@@ -11,14 +12,14 @@ export class TeamFuncs {
 
       const { name, description } = bodySchema.parse(request.body)
 
-      await prisma.teams.create({
+      const team = await prisma.teams.create({
          data: {
             name,
             description
          }
       })
 
-      return response.status(201).json()
+      return response.status(201).json({id: team.id})
    }
 
    async update(request: Request, response: Response) {
@@ -33,6 +34,12 @@ export class TeamFuncs {
 
       const { id } = paramsSchema.parse(request.params)
       const { name, description } = bodySchema.parse(request.body)
+
+      const team = await prisma.teams.findUnique({ where: { id } })
+
+      if (!team) {
+         throw new AppError("Team not found", 404)
+      }
 
       await prisma.teams.update({
          data: {
@@ -53,6 +60,12 @@ export class TeamFuncs {
       })
 
       const { id } = paramsSchema.parse(request.params)
+
+      const team = await prisma.teams.findUnique({ where: { id } })
+
+      if (!team) {
+         throw new AppError("Team not found", 404)
+      }
 
       await prisma.teams.delete({ where: { id } })
 

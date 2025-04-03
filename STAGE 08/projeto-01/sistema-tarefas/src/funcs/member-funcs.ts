@@ -12,20 +12,25 @@ export class MemberFuncs {
 
       const { teamId, userId } = bodySchema.parse(request.body)
 
+      const user = await prisma.user.findUnique({ where: { id: userId } })
       const team = await prisma.teams.findUnique({ where: { id: teamId } })
+
+      if(!user) {
+         throw new AppError("User not found", 404)
+      }
 
       if(!team) {
          throw new AppError("Team not found", 404)
       }
 
-      await prisma.members.create({
+      const members = await prisma.members.create({
          data: {
             teamId: teamId,
             userId: userId
          }
       })
 
-      return response.status(201).json()
+      return response.status(201).json({ id: members.id })
    }
 
    async remove(request: Request, response: Response) {
@@ -34,6 +39,12 @@ export class MemberFuncs {
       })
 
       const { id } = paramsSchema.parse(request.params)
+
+      const user = await prisma.members.findUnique({ where: { userId: id }})
+
+      if (!user) {
+         throw new AppError("User not found", 404)
+      }
 
       await prisma.members.delete({ where: { userId: id } })
 

@@ -13,15 +13,22 @@ export class TaskFuncs {
 
       const { title, description, assignedTo } = bodySchema.parse(request.body)
 
+      const user = await prisma.user.findUnique({ where: { id: assignedTo } })
+      
+      if (!user) {
+         throw new AppError("This user doesn't exist", 404)
+      }
+
       const team = await prisma.members.findUnique({ where: { userId: assignedTo }, select: { teamId: true } })
 
       const team_id = team?.teamId
 
       if (!team_id) {
-         throw new AppError("You can't create a task, because you don't belong to a team")
+         throw new AppError("You can't create a task, because the user don't belong to a team")
       }
 
-      await prisma.tasks.create({
+
+      const task = await prisma.tasks.create({
          data: {
             title,
             description,
@@ -30,7 +37,7 @@ export class TaskFuncs {
          }
       }) 
             
-      return response.status(201).json()
+      return response.status(201).json({ id: task.id, user })
    }
 
    async show(request: Request, response: Response) {
@@ -41,6 +48,10 @@ export class TaskFuncs {
       const { id } = paramsSchema.parse(request.params)
 
       const task = await prisma.tasks.findUnique({ where:  { id }})
+
+      if (!task) {
+         throw new AppError("Task not found", 404)
+      }
 
       if(request.user?.role === "member" && request.user.id !== task?.assignedTo) {
          throw new AppError("The user can be only see their tasks", 401)
@@ -55,8 +66,8 @@ export class TaskFuncs {
       })
 
       const bodySchema = z.object({
-         title: z.optional(z.string()),
-         description: z.optional(z.string()),
+         title: z.optional(z.string().trim().min(1)),
+         description: z.optional(z.string().trim().min(1)),
          status: z.optional(z.enum(["pending", "in_progress", "completed"])),
          priority: z.optional(z.enum(["high", "medium", "low"]))
       })
@@ -66,6 +77,10 @@ export class TaskFuncs {
       const { title, description, status, priority } = bodySchema.parse(request.body)
 
       const taskUpdate = await prisma.tasks.findUnique({ where: { id } })
+
+      if (!taskUpdate) {
+         throw new AppError("Task not found", 404)
+      }
 
       if(request.user?.role === "member" && request.user.id !== taskUpdate?.assignedTo) {
          throw new AppError("The user can only update their tasks", 401)
@@ -92,6 +107,12 @@ export class TaskFuncs {
       })
 
       const { id } = paramsSchema.parse(request.params)
+
+      const deleteTask = await prisma.tasks.findUnique({ where: { id } })
+
+      if (!deleteTask) {
+         throw new AppError("Task not found", 404)
+      }
 
       await prisma.tasks.delete({ where: { id } })
 
