@@ -1,0 +1,20 @@
+{
+  "name": "api-ticket",
+  "version": "1.0.0",
+  "description": "API de gerenciamento de tickets de suporte",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slowrach/api-ticket.git"
+  },
+  "author": "Raquel Queiroz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slowrach/api-ticket/issues"
+  },
+  "homepage": "https://github.com/slowrach/api-ticket#readme"
+}
