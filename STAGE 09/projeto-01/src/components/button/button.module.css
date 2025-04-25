@@ -1,0 +1,12 @@
+.container {
+   background-color: #c347c3;
+   border: 1px solid #580f58;
+   padding: 0.5rem 1rem;
+   border-radius: 0.5rem;
+}
+
+.container span {
+   color: #ffffff;
+   font-weight: 700;
+   font-size: 1.5rem;
+}
