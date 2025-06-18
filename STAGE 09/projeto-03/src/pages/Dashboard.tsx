@@ -2,13 +2,42 @@ import { useState } from "react";
 import { Input } from "../components/Input";
 import search from "../assets/search.svg"
 import { Button } from "../components/Button";
+import { Items, type ItemProps } from "../components/Items";
+import { CATEGORIES } from "../utils/categories";
+import { format } from "../utils/format";
+import { Pagination } from "../components/Pagination";
+
+export const example = {
+   id: "1",
+   name: "Franz",
+   category: "Outros",
+   value: format(56.8),
+   categoryImg: CATEGORIES["others"].icon
+}
 
 export function Dashboard(){
    const [name, setName] = useState("")
+   const [page, setPage] = useState(1)
+   const [total, setTotal] = useState(10)
+   const [refunds, setRefunds] = useState<ItemProps[]>([example])
 
    function searchName(e: React.FormEvent){
       e.preventDefault()
       console.log(name)
+   }
+
+   function pagination(action: "next" | "previous"){
+      setPage((prev) => {
+         if(action === "next" && prev < total){
+            return prev + 1
+         }
+
+         if(action === "previous" && prev > 1){
+            return prev - 1
+         }
+
+         return prev
+      })
    }
 
    return (
@@ -23,9 +52,11 @@ export function Dashboard(){
             </Button>
          </form>
 
-         <div>
-
+         <div className="flex flex-col gap-4 max-h-[342px] overflow-y-scroll">
+            {refunds.map((item) => <Items key={item.id} data={item} href={`/refund/${item.id}`} />)}
          </div>
+
+         <Pagination current={page} total={total} onNext={() => pagination("next")} onPrevious={() => pagination("previous")} />
       </div>
    )
 }

@@ -12,6 +12,6 @@ const variants = {
    }
 }
 
-export function Button({ children, loading, className, type = "button", variant = "base", ...rest }: Props){
-   return <button type={type} {...rest} disabled={loading} className={Merge(["flex items-center justify-center bg-green-100 text-white rounded-md h-12 cursor-pointer hover:bg-green-900 transition ease-linear disabled:opacity-70 disabled:cursor-not-allowed", variants.button[variant], className]) }>{children}</button>
+export function Button({ children, loading, className, type = "button", variant = "base", disabled, ...rest }: Props){
+   return <button type={type} {...rest} disabled={loading || disabled} className={Merge(["flex items-center justify-center bg-green-100 text-white rounded-md cursor-pointer hover:bg-green-900 transition ease-linear disabled:opacity-70 disabled:cursor-not-allowed", variants.button[variant], className]) }>{children}</button>
 }

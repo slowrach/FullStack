@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { CATEGORIES, KEYS } from "../utils/categories";
 import { Input } from "../components/Input";
 import { Select } from "../components/Select";
 import { Upload } from "../components/Upload";
 import { Button } from "../components/Button";
+import file from "../assets/file.svg"
+import { Info } from "../components/Info";
+import { example } from "./Dashboard";
 
 export function Refund(){
    const [name, setName] = useState("")
@@ -14,9 +17,14 @@ export function Refund(){
    const [filename, setFilename] = useState<File | null>(null)
 
    const navigate = useNavigate()
+   const params = useParams<{id: string}>()
 
    function submit(e: React.FormEvent){
       e.preventDefault()
+
+      if(params.id){
+         return navigate(-1)
+      }
 
       console.log(name, category, value, filename)
 
@@ -31,23 +39,42 @@ export function Refund(){
             <p className="text-sm text-gray-200 mt-2 mb-4">Dados para solicitação de reembolso</p>
          </header>
 
-         <Input required legend="nome da solicitação" value={name} onChange={(e) => setName(e.target.value)} />
-         
-         <div className="flex gap-4">
-            <Select required legend="categoria" value={category} onChange={(e) => setCategory(e.target.value)}>
-               {KEYS.map((op) => (
-                  <option key={op} value={op}>
-                     {CATEGORIES[op].name}
-                  </option>
-               ))}
-            </Select>
-   
-            <Input required legend="valor" value={value} onChange={(e) => setValue(e.target.value)} />
-         </div>
+         {params.id ? (
+            <div>
+               <Info title="Nome" info={example.name} />
 
-         <Upload filename={filename && filename.name} onChange={(e) => e.target.files &&setFilename(e.target.files[0])}/>
+               <Info title="Categoria" info={example.category} />
 
-         <Button type="submit" loading={loading}>Enviar</Button> 
+               <Info title="Valor" info={example.value} />
+
+               <a target="_blank" className="flex justify-center gap-2 text-sm font-semibold text-green-100 cursor-pointer hover:opacity-70 mt-7 mb-3">
+                  <img src={file} alt="Ícone de comprovante" />
+                  Abrir comprovante
+               </a>
+            </div>
+         ) : (
+            <div>
+               <Input required legend="nome da solicitação" value={name} onChange={(e) => setName(e.target.value)} disabled={!!params.id} />
+
+               <div className="flex gap-4">
+                  <Select required legend="categoria" value={category} onChange={(e) => setCategory(e.target.value)} disabled={!!params.id}>
+                  {KEYS.map((op) => (
+                     <option key={op} value={op}>
+                        {CATEGORIES[op].name}
+                     </option>
+                  ))}
+                  </Select>
+
+                  <Input required legend="valor" value={value} onChange={(e) => setValue(e.target.value)} disabled={!!params.id} />
+               </div>
+
+               <Upload filename={filename && filename.name} onChange={(e) => e.target.files &&setFilename(e.target.files[0])}/>
+            </div>
+         )}
+
+         <Button type="submit" loading={loading}>
+               { params.id ? "Voltar" : "Enviar" }
+         </Button> 
       </form>
    )
 }
