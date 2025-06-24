@@ -3,21 +3,17 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
 export function SignIn(){
-   const [email, setEmail] = useState("")
-   const [password, setPassword] = useState("")
    const [loading, setLoading] = useState(false)
 
-   function submit(e: React.FormEvent){
-      e.preventDefault()
-
-      console.log(email, password)
+   function submit(formData: FormData){
+      console.log(formData.get("email"))
    }
 
    return (
-      <form onSubmit={submit} className="w-full flex flex-col gap-4">
-         <Input required legend="e-mail" type="email" onChange={(e) => setEmail(e.target.value)} />
+      <form action={submit} className="w-full flex flex-col gap-4">
+         <Input required name="email" legend="e-mail" type="email" />
 
-         <Input required legend="senha" type="password" onChange={(e) => setPassword(e.target.value)} />
+         <Input required name="password" legend="senha" type="password" />
 
          <Button type="submit" loading={loading}>Entrar</Button>
 

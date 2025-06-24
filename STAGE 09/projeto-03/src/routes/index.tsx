@@ -5,7 +5,7 @@ import { Admin } from "./admin";
 
 const session = {
    user: {
-      role: "admin",
+      role: "",
    }
 }
 
