@@ -4,18 +4,12 @@ import { Auth } from "./auth";
 import { Employee } from "./employee";
 import { Admin } from "./admin";
 
-const session = {
-   user: {
-      role: "",
-   }
-}
-
 export function Routes(){
-   const context = useAuth()
+   const { session } = useAuth()
 
    function RouteUser(){
-      switch (session.user.role) {
-         case "admin":
+      switch (session?.user.role) {
+         case "manager":
             return <Admin />
          case "employee":
             return <Employee />

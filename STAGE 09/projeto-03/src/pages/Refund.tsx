@@ -53,7 +53,7 @@ export function Refund(){
                </a>
             </div>
          ) : (
-            <div>
+            <div className="flex flex-col gap-4">
                <Input required legend="nome da solicitação" value={name} onChange={(e) => setName(e.target.value)} disabled={!!params.id} />
 
                <div className="flex gap-4">
