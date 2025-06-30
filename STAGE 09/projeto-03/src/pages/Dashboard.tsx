@@ -11,7 +11,7 @@ export const example = {
    id: "1",
    name: "Franz",
    category: "Outros",
-   value: format(56.8),
+   amount: format(56.8),
    categoryImg: CATEGORIES["others"].icon
 }
 

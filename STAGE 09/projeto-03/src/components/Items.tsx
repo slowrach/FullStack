@@ -2,7 +2,7 @@ export type ItemProps = {
    id: string
    name: string
    category: string
-   value: string
+   amount: string
    categoryImg: string
 }
 
@@ -24,7 +24,7 @@ export function Items({ data, ...rest }: Props){
          <span className="flex items-center">
             <small className="text-gray-200">R$</small>
 
-            <strong>{data.value}</strong>
+            <strong>{data.amount}</strong>
          </span>
       </a>
    )

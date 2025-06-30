@@ -1,34 +1,75 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { api } from "../services/api";
+import { z, ZodError } from "zod";
+import { AxiosError } from "axios";
 import { CATEGORIES, KEYS } from "../utils/categories";
 import { Input } from "../components/Input";
 import { Select } from "../components/Select";
 import { Upload } from "../components/Upload";
 import { Button } from "../components/Button";
-import file from "../assets/file.svg"
+import fileSvg from "../assets/file.svg"
 import { Info } from "../components/Info";
 import { example } from "./Dashboard";
+
+const refundSchema = z.object({
+   name: z.string().min(1, { message: "Informe seu nome" }),
+   category: z.string().min(1, { message: "Informe a categoria" }),
+   amount: z.coerce.number({ message: "Informe um valor" }).positive({ message: "Informe um valor válido" })
+})
 
 export function Refund(){
    const [name, setName] = useState("")
    const [category, setCategory] = useState("")
-   const [value, setValue] = useState("")
+   const [amount, setAmount] = useState("")
    const [loading, setLoading] = useState(false)
-   const [filename, setFilename] = useState<File | null>(null)
+   const [file, setFile] = useState<File | null>(null)
 
    const navigate = useNavigate()
    const params = useParams<{id: string}>()
 
-   function submit(e: React.FormEvent){
+   async function submit(e: React.FormEvent){
       e.preventDefault()
 
       if(params.id){
          return navigate(-1)
       }
 
-      console.log(name, category, value, filename)
+      try {
+         setLoading(true)
 
-      navigate("/confirm", { state: { fromSubmit: true } })
+         if(!file){
+            return alert("Selecione um arquivo de comprovante")
+         }
+
+         const uploadForm = new FormData()
+
+         uploadForm.append("file", file)
+
+         const response = await api.post("/uploads", uploadForm)
+
+         const data = refundSchema.parse({
+            name,
+            category,
+            amount: amount.replace(",", ".")
+         })
+
+         await api.post("/refunds", {...data, filename: response.data.filename})
+
+         navigate("/confirm", { state: { fromSubmit: true } })
+      } catch (error) {
+       if(error instanceof ZodError){
+         return alert(error.issues[0].message)
+       }
+
+       if(error instanceof AxiosError){
+         return alert(error.response?.data.message)
+       }
+       
+       alert("Não foi possível realizar a solicitação")
+      } finally {
+         setLoading(false)
+      }
    }
 
    return (
@@ -45,10 +86,10 @@ export function Refund(){
 
                <Info title="Categoria" info={example.category} />
 
-               <Info title="Valor" info={example.value} />
+               <Info title="Valor" info={example.amount} />
 
                <a target="_blank" className="flex justify-center gap-2 text-sm font-semibold text-green-100 cursor-pointer hover:opacity-70 mt-7 mb-3">
-                  <img src={file} alt="Ícone de comprovante" />
+                  <img src={fileSvg} alt="Ícone de comprovante" />
                   Abrir comprovante
                </a>
             </div>
@@ -65,10 +106,10 @@ export function Refund(){
                   ))}
                   </Select>
 
-                  <Input required legend="valor" value={value} onChange={(e) => setValue(e.target.value)} disabled={!!params.id} />
+                  <Input required legend="valor" value={amount} onChange={(e) => setAmount(e.target.value)} disabled={!!params.id} />
                </div>
 
-               <Upload filename={filename && filename.name} onChange={(e) => e.target.files &&setFilename(e.target.files[0])}/>
+               <Upload filename={file && file.name} onChange={(e) => e.target.files &&setFile(e.target.files[0])}/>
             </div>
          )}
 
